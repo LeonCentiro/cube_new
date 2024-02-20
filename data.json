@@ -15,5 +15,35 @@
       "cost": 0,
       "createdUtc": "2022-04-27T14:37:51.153",
       "modifiedUtc": "2022-04-27T14:37:51.153"
+    },
+    {
+      "items": [
+        {
+          "id": "1",
+          "height": 222,
+          "length": 233,
+          "width": 111,
+          "weight": 1,
+          "quantity": 2
+        }
+    , {
+          "id": "1",
+          "height": 222,
+          "length": 233,
+          "width": 111,
+          "weight": 1,
+          "quantity": 1
+        }
+      ],
+      "containerType": "BOX",
+      "split": true,
+      "allowAdditionalContainers": true,
+      "costPriority": true,
+      "provider": "SNE9sx",
+      "source": "",
+      "padding": 10,
+      "packingDetails": true
     }
+
   ]
+  

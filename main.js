@@ -44,7 +44,7 @@ var data = fetch('./data.json')
         // Create mesh
         var textMesh = new THREE.Mesh(geometry, material);
 
-        textMesh.position.x = -2.5;
+        textMesh.position.x = -5.5;
         textMesh.position.y = 3.5;
     
         // Add mesh to the scene
@@ -95,6 +95,7 @@ camera.position.z = 5;
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
+renderer.setPixelRatio(window.devicePixelRatio);
 
 // Animation loop
 const animate = function () {
