@@ -1,0 +1,19 @@
+[
+    {
+      "id": "950f0c2b-a65c-4e9b-8a0f-f025758166d1",
+      "tenant": "/IKEA/EU/",
+      "type": "Box",
+      "description": "S",
+      "innerHeightInM": 0.375,
+      "innerLengthInM": 0.235,
+      "innerWidthInM": 0.146,
+      "outerHeightInM": 0.38,
+      "outerLengthInM": 0.24,
+      "outerWidthInM": 0.15,
+      "emptyWeightInKg": 0.402,
+      "maxWeightInKg": 4,
+      "cost": 0,
+      "createdUtc": "2022-04-27T14:37:51.153",
+      "modifiedUtc": "2022-04-27T14:37:51.153"
+    }
+  ]
