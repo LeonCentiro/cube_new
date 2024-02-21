@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 import  { TextGeometry } from 'three/addons/geometries/TextGeometry.js';
 import { FontLoader } from 'three/addons/loaders/FontLoader.js';
+import { CSS2DRenderer, CSS2DObject  } from 'three/addons/renderers/CSS2DRenderer.js';
 
 // Create a scene
 const scene = new THREE.Scene();
@@ -18,14 +19,22 @@ const material = new THREE.MeshStandardMaterial({
   opacity: 0.5,
 });
 
+
 var data = fetch('./data.json')
 .then((response) => response.json())
 .then((json) => {
     function jsonToHtml(json) {
         return `<pre>${JSON.stringify(json, null, 2)}</pre>`;
       }
+console.log(json);
+// var listOfSmallBoxes = new Array[3];
 
-    console.log(json)
+//       var result = JSON.parse<CubingResponse>(json);
+//       result.items.forEach(item => {
+//         listOfSmallBoxes.add(new smallBox)
+//         tempBox.boxWidth = item.boxWidth;
+//       });
+//     console.log("test",json)
 
     var loader = new FontLoader();
     loader.load('font.json', function (font) {
@@ -105,9 +114,25 @@ const animate = function () {
   cube.rotation.y += 0.01;
 //   cube.rotation.x += 0.01;
 
+buttonObject.rotation.x += 0.005;
+buttonObject.rotation.y += 0.005;
   // Render the scene
   renderer.render(scene, camera);
 };
+
+    // Create a button
+    const buttonContainer = document.getElementById('buttonContainer');
+    const button = document.createElement('button');
+    button.innerHTML = 'Click me!';
+    button.className = 'button';
+
+    // Create CSS2DObject for the button
+    const buttonObject = new CSS2DObject(button);
+    buttonObject.position.set(0, 0, 0);
+
+    // Add the button to the scene
+    scene.add(buttonObject);
+
 
 // Start the animation loop
 animate();

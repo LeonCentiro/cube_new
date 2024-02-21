@@ -16,7 +16,9 @@
       "createdUtc": "2022-04-27T14:37:51.153",
       "modifiedUtc": "2022-04-27T14:37:51.153"
     },
-    {
+    [
+      {
+      "innerBox": {
       "items": [
         {
           "id": "1",
@@ -44,6 +46,7 @@
       "padding": 10,
       "packingDetails": true
     }
-
+  }
+  ]
   ]
   
