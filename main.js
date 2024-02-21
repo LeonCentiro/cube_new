@@ -8,6 +8,7 @@ const scene = new THREE.Scene();
 var color = new THREE.Color("#000000");;
 // Create an ambient light
 const ambientLight = new THREE.AmbientLight(color.getHex(), 0.5);
+
 scene.add(ambientLight);
 
 scene.background = new THREE.Color(0xeeeeee);
@@ -27,14 +28,7 @@ var data = fetch('./data.json')
         return `<pre>${JSON.stringify(json, null, 2)}</pre>`;
       }
 console.log(json);
-// var listOfSmallBoxes = new Array[3];
 
-//       var result = JSON.parse<CubingResponse>(json);
-//       result.items.forEach(item => {
-//         listOfSmallBoxes.add(new smallBox)
-//         tempBox.boxWidth = item.boxWidth;
-//       });
-//     console.log("test",json)
 
     var loader = new FontLoader();
     loader.load('font.json', function (font) {
@@ -62,9 +56,11 @@ console.log(json);
 }
     );
 
-// Create a new FileLoader
-// Create a new FileLoader
-
+  // Create a raycaster
+  const raycaster = new THREE.Raycaster();
+  const mouse = new THREE.Vector2();
+  
+  
 
 // Set the dimensions of the cube (width, height, depth)
 const cubeWidth = 1.15;
@@ -119,6 +115,39 @@ buttonObject.rotation.y += 0.005;
   // Render the scene
   renderer.render(scene, camera);
 };
+
+
+var colorOnHover = new THREE.Color("#25F904");;
+
+// Handle mousemove event
+document.addEventListener('mousemove', (event) => {
+  // Calculate normalized device coordinates (NDC) from mouse position
+  mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+  mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+  // Update the picking ray with the camera and mouse position
+  raycaster.setFromCamera(mouse, camera);
+
+  // Check for intersection with the cube
+  const intersects = raycaster.intersectObject(cube3);
+  const intersectsOnCube2 = raycaster.intersectObject(cube2);
+  
+
+  // If the mouse is hovering over the cube
+  if (intersects.length > 0) {
+    // Perform actions on hover
+    cube3.material.color.setHex(colorOnHover);
+
+  } else if(intersectsOnCube2.length > 0){
+    cube2.material.color.setHex(colorOnHover);
+
+  }
+  else {
+    // Perform actions when not hovering
+    cube3.material.color.set(0x00ff00); 
+    cube2.material.color.set(0xff0000); // Reset cube color
+  }
+});
 
     // Create a button
     const buttonContainer = document.getElementById('buttonContainer');
